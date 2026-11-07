@@ -4,8 +4,8 @@
 
 **Student:** Bhavesh Jadhav  |  **BITS ID:** 2026AJ05850
 
-- **GitHub repository:** `<paste your GitHub repo link here>`
-- **Live Streamlit app:** `<paste your Streamlit app link here>`
+- **GitHub repository:** https://github.com/Bhavesh45-lab/ml-assignment2-churn
+- **Live Streamlit app:** https://churn-ml-bhavesh.streamlit.app
 
 ---
 
@@ -45,7 +45,7 @@ The task is a **binary classification problem**: using a customer's account deta
 
 ## c. GitHub repository
 
-`<paste your GitHub repo link here>`
+https://github.com/Bhavesh45-lab/ml-assignment2-churn
 
 ```
 ml-assignment2-churn/
