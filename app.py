@@ -68,6 +68,16 @@ def prepare(df):
     return df[FEATURES], y.astype(int)
 
 
+def predict_labels(model, X, y_prob, threshold):
+    """At the default threshold use model.predict() (same as training/README);
+    otherwise apply the user-chosen threshold to the predicted probability.
+    (For SVC, predict() uses the decision function, which can differ slightly
+    from predict_proba >= 0.5 because of Platt scaling.)"""
+    if abs(threshold - 0.5) < 1e-9:
+        return model.predict(X)
+    return (y_prob >= threshold).astype(int)
+
+
 def compute_metrics(y, y_pred, y_prob):
     return {
         "Accuracy": accuracy_score(y, y_pred),
@@ -136,7 +146,7 @@ tab_single, tab_compare = st.tabs([f"🔍 {model_name}", "📊 Compare all 5 mod
 with tab_single:
     model = models[model_name]
     y_prob = model.predict_proba(X)[:, 1]
-    y_pred = (y_prob >= threshold).astype(int)
+    y_pred = predict_labels(model, X, y_prob, threshold)
     m = compute_metrics(y, y_pred, y_prob)
 
     st.subheader(f"Evaluation metrics — {model_name}")
@@ -189,7 +199,7 @@ with tab_compare:
     rows = {}
     for name, mdl in models.items():
         p = mdl.predict_proba(X)[:, 1]
-        rows[name] = compute_metrics(y, (p >= threshold).astype(int), p)
+        rows[name] = compute_metrics(y, predict_labels(mdl, X, p, threshold), p)
     table = pd.DataFrame(rows).T
     st.dataframe(table.style.format("{:.4f}").highlight_max(axis=0, color="#c6efce"),
                  width="stretch")
