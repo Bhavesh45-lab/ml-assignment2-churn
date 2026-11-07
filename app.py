@@ -1,6 +1,7 @@
 """
 Telco Customer Churn - Model Evaluation Dashboard
 ML Assignment 2, M.Tech (AIML), BITS Pilani WILP
+Student: Bhavesh Jadhav (BITS ID: 2026AJ05850)
 
 Upload the held-out test CSV, pick one of the five pre-trained classifiers and see
 its metrics, confusion matrix and classification report. Models are only loaded
@@ -29,6 +30,9 @@ FEATURES = [
     "OnlineBackup", "DeviceProtection", "TechSupport", "StreamingTV", "StreamingMovies",
     "Contract", "PaperlessBilling", "PaymentMethod",
 ]
+STUDENT_NAME = "Bhavesh Jadhav"
+BITS_ID = "2026AJ05850"
+
 MODEL_FILES = {
     "Logistic Regression": "logistic_regression.joblib",
     "Decision Tree": "decision_tree.joblib",
@@ -77,6 +81,7 @@ def compute_metrics(y, y_pred, y_prob):
 
 # ---------------------------------------------------------------- sidebar
 st.sidebar.title("📉 Churn Model Lab")
+st.sidebar.markdown(f"**{STUDENT_NAME}**  \nBITS ID: `{BITS_ID}`")
 st.sidebar.caption("ML Assignment 2 · M.Tech AIML · BITS WILP")
 
 uploaded = st.sidebar.file_uploader("1 · Upload test data (CSV)", type=["csv"])
@@ -98,6 +103,7 @@ st.sidebar.markdown(
 
 # ---------------------------------------------------------------- main
 st.title("Telco Customer Churn — Classifier Evaluation")
+st.caption(f"Submitted by **{STUDENT_NAME}** · BITS ID **{BITS_ID}** · M.Tech (AIML) · Machine Learning — Assignment 2")
 st.write("Upload the held-out test set, pick a classifier and compare how well each "
          "pre-trained model identifies customers who are about to churn.")
 

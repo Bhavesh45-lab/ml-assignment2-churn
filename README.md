@@ -2,6 +2,8 @@
 
 **M.Tech (AIML) · Machine Learning · BITS Pilani WILP**
 
+**Student:** Bhavesh Jadhav  |  **BITS ID:** 2026AJ05850
+
 - **GitHub repository:** `<paste your GitHub repo link here>`
 - **Live Streamlit app:** `<paste your Streamlit app link here>`
 
